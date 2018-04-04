@@ -27,7 +27,8 @@
     <div class="row">
         <div class="col-md-6" style="background-color: rgba(86, 61, 124, 0.8);">
             <div class="wisata-ct1 text-white">
-                <h1 class="display-2"><?php echo $wisata['nama_wisata'] ?></h1>
+                <h1 class="display-2" style="font-weight: 700"><?php echo $wisata['nama_wisata'] ?></h1>
+                <p style="font-size: 2rem"><?php echo $wisata['lokasi_wisata'] ?></p>
             </div>
         </div>
         <div class="col-md-6" style="background-color: white">

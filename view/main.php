@@ -38,7 +38,11 @@
     </div>
     <div class="container-fluid bg-raja" style="padding: 0">
         <div class="faded-main text-center text-white">
-            <h1 class="display-3">Selamat datang, <?php echo $user['username'] ?></h1>
+            <h1 class="display-2" style="font-weight: 700">Selamat datang, <?php echo $user['username'] ?></h1>
+            <h3 class="display-4">Mulailah liburan anda</h3>
+            <form action="" method="get">
+                <input type="search" name="search" class="form-control"/>
+            </form>
         </div>
     </div>
     <div class="container">
@@ -87,5 +91,6 @@
             </form>
         </div>
     </div>
+    <br><br>
 </body>
 </html>

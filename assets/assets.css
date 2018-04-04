@@ -47,11 +47,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 100vh;
 }
 
 .wisata-ct2 {
-    padding: 20px;
+    padding: 40px;
 }
 
 .search-ct {

@@ -41,7 +41,7 @@
             </li>
         </ul>
     </div>
-    <div class="container-fluid" style="padding: 0">
+    <div class="container-fluid bg-bromo" style="padding: 0">
         <div class="faded-search text-white">
             <h1 class="display-3" style="font-weight: 900">Destinasi <?php echo $tujuan ?></h1>
             <h6 style="font-weight: 600"><?php echo "Jangka waktu: $berangkat - $pulang"?></h6>
@@ -53,7 +53,7 @@
             $sql = "SELECT * FROM transport WHERE tujuan_transport='$tujuan'";
             $result = $conn->query($sql);
             if($result->num_rows > 0) {
-                echo "<p>Transportasi menuju $tujuan</p><hr>";
+                echo "<p>Pilihan transportasi menuju $tujuan</p><hr>";
                 while($row = $result->fetch_assoc()) {
                     $nama_transport = $row['nama_transport'];
                     $jenis_transport = $row['jenis_transport'];
@@ -81,7 +81,7 @@
             $sql = "SELECT * FROM hotel WHERE lokasi_hotel='$tujuan'";
             $result = $conn->query($sql);
             if($result->num_rows > 0) {
-                echo "<p>Hotel di $tujuan</p><hr>";
+                echo "<p>Pilihan hotel di $tujuan</p><hr>";
                 while($row = $result->fetch_assoc()) {
                     $nama_hotel = $row['nama_hotel'];
                     $deskripsi_hotel = $row['deskripsi_hotel'];
@@ -107,7 +107,7 @@
             $sql = "SELECT * FROM wisata WHERE lokasi_wisata='$tujuan'";
             $result = $conn->query($sql);
             if($result->num_rows > 0) {
-                echo "<p>Wisata yang ada di $tujuan</p><hr>";
+                echo "<p>Pilihan wisata yang ada di $tujuan</p><hr>";
                 while($row = $result->fetch_assoc()) {
                     $id_wisata = $row['id_wisata'];
                     $nama_wisata = $row['nama_wisata'];

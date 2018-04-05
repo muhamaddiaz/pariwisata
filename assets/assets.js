@@ -1,3 +1,11 @@
+function validate_email(email) {
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    let e = $('#email');
+    if(e.match(mailformat)) {
+        return true;
+    } 
+    return false;
+}
 function validate() {
     let b = $('#fullname');
     let c = $('#username');
@@ -21,8 +29,8 @@ function validate() {
     } else {
         e_c.text('');
     }
-    if(d.val() == '') {
-        e_d.text('* email tidak boleh kosong');
+    if(d.val() == '' && validate_email(d.val())) {
+        e_d.text('* email tidak boleh kosong / email tidak memenuhi format');
         error++;
     } else {
         e_d.text('');

@@ -44,7 +44,7 @@
     <div class="container-fluid bg-bromo" style="padding: 0">
         <div class="faded-search text-white">
             <h1 class="display-3" style="font-weight: 900">Destinasi <?php echo $tujuan ?></h1>
-            <h6 style="font-weight: 600"><?php echo "Jangka waktu: $berangkat - $pulang"?></h6>
+            <h6 style="font-weight: 600"><?php echo "Jangka waktu: $berangkat - $pulang, Untuk $infant Orang"?></h6>
         </div>
     </div>
     <br>
@@ -66,8 +66,13 @@
                                     </div>
                                     <div class='col-md-8'>
                                         <h2 class=card-title>$nama_transport</h2>
-                                        <p class=card-text>$jenis_transport</p>
-                                    </div>
+                                        <p class=card-text>$jenis_transport</p>";
+                                        if($infant > $row['kapasitas']) {
+                                            echo "<p class='text-danger card-text'>Tiket tidak mencukupi</p>";
+                                        } else {
+                                            echo "<p class='text-success card-text'>Tiket tersedia</p>";
+                                        }
+                                    echo "</div>
                                 </div>
                             </div>
                             <div class='card-footer'>
@@ -95,8 +100,13 @@
                                     </div>
                                     <div class='col-md-8'>
                                         <h2 class=card-title>$nama_hotel</h2>
-                                        <p class=card-text>$deskripsi_hotel</p>
-                                    </div>
+                                        <p class=card-text>$deskripsi_hotel</p>";
+                                        if($infant > $row['kamar']) {
+                                            echo "<p class='card-text text-danger'>Kamar penuh</p>";
+                                        } else {
+                                            echo "<p class='text-success card-text'>Kamar tersedia</p>";
+                                        }
+                                   echo "</div>
                                 </div>
                             </div>
                           </div><br>";

@@ -1,8 +1,5 @@
 <?php 
-    session_start(); 
-    if(!isset($_SESSION['id_user'])) {
-        header('Location: '. 'http://localhost/pariwisata');
-    }
+    session_start();
     require '../secret/dbsetting.php';
     $id_wisata = $_GET['wisata'];
     $sql = "SELECT * FROM wisata WHERE id_wisata=$id_wisata";
@@ -67,14 +64,19 @@
                         }
                     ?>
                 <hr>
-                <form action="../controller/comment-process.php" method="post">
-                    <input type="hidden" name="id_user" value="<?php echo $_SESSION['id_user'] ?>" />
-                    <input type="hidden" name="id_wisata" value="<?php echo $id_wisata ?>" />
-                    <textarea name="comment" class="form-control" placeholder="Comment tentang destinasi ini" required></textarea>
-                    <br>
-                    <button type="submit" class="btn btn-success">Comment</button>
-                </form>
-                <br>
+                <?php 
+                    if(isset($_SESSION['id_user'])) {
+                        $id_user = $_SESSION['id_user'];
+                        echo "<form action='../controller/comment-process.php' method='post'>
+                            <input type='hidden' name='id_user' value='$id_user' />
+                            <input type='hidden' name='id_wisata' value='$id_wisata' />
+                            <textarea name='comment' class='form-control' placeholder='Comment tentang destinasi ini' required></textarea>
+                            <br>
+                            <button type='submit' class='btn btn-success'>Comment</button>
+                            </form>
+                        <br>";
+                    }
+                ?>
                 <a href="main.php">Back to home</a>
             </div>
         </div>

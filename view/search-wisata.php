@@ -1,14 +1,13 @@
 <?php 
-    session_start(); 
-    if(!isset($_SESSION['id_user'])) {
-        header('Location: '. 'http://localhost/pariwisata');
-    }
+    session_start();
     require '../secret/dbsetting.php';
     $search = $_GET['search'];
-    $id_user = $_SESSION['id_user'];
-    $sqluser = "SELECT * FROM user WHERE id_user=$id_user";
-    $result = $conn->query($sqluser);
-    $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    if(isset($_SESSION['id_user'])) {
+        $id_user = $_SESSION['id_user'];
+        $sqluser = "SELECT * FROM user WHERE id_user=$id_user";
+        $result = $conn->query($sqluser);
+        $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,17 +23,22 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="navbar navbar-expand-md navbar-light">
-        <a class="navbar-brand" href="#" style="color: rgb(86, 61, 124)">Travelpedia</a>
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="main.php"><?php echo $user['fullname'] ?></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../controller/logout-process.php">Keluar</a>
-            </li>
-        </ul>
-    </div>
+    <?php 
+    if(isset($_SESSION['id_user'])) {
+        $username = $user['fullname'];
+        echo "<div class='navbar navbar-expand-md navbar-light'>
+            <a class='navbar-brand' href='#' style='color: rgb(86, 61, 124)'>Travelpedia</a>
+            <ul class='navbar-nav'>
+                <li class='nav-item'>
+                    <a class='nav-link' href='main.php'>$username</a>
+                </li>
+                <li class='nav-item'>
+                    <a class='nav-link' href='../controller/logout-process.php'>Keluar</a>
+                </li>
+            </ul>
+        </div>";
+    }
+    ?>
     <div class="container-fluid bg-bromo" style="padding: 0">
         <div class="faded-search text-white">
             <h1 class="display-3" style="font-weight: 900">Hasil untuk <?php echo $search ?></h1>

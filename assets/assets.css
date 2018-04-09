@@ -29,6 +29,11 @@ body {
     background-color: rgba(86, 61, 124, 0.8);
 }
 
+.faded-content {
+    width: 50%;
+    text-align: center;
+}
+
 .faded-search {
     width: 100%;
     padding: 100px 20px;

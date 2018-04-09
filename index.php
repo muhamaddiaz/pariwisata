@@ -20,9 +20,20 @@
 <body>
     <div class="cont-ct">
         <div class="faded text-white">
-            <h1 class="display-1" style="font-weight: 500">Travelpedia</h1>
-            <p>Start your travel</p>
-            <a href="./view/login.php" class="btn btn-success">Login now</a>
+            <div class="faded-content">
+                <h1 class="display-1" style="font-weight: 500">Travelpedia</h1>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <br>
+                        <form action="./view/search-wisata.php" method="get">
+                            <input type="search" name="search" class="form-control" placeholder="Cari wisata" required/>
+                            <br>
+                            <button type="submit" class="btn btn-success">Cari wisata</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <br>
@@ -107,6 +118,7 @@
         <h1 style="margin: 0;">Jangan terlalu lama membaca, ayo liburan sekarang!</h1>
         <p>Lupakan sejenak masalah</p>
         <a class="btn btn-danger" href="./view/signup.php">Daftar sekarang!</a>
+        <a class="btn btn-success" href="./view/login.php">Login sekarang!</a>
     </div>
 </body>
 </html>

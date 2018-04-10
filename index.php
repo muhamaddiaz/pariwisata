@@ -1,7 +1,7 @@
 <?php 
     session_start(); 
     if(isset($_SESSION['id_user'])) {
-        header('Location: '. 'http://localhost/pariwisata/view/main.php');
+        header('Location: '. 'http://localhost/pariwisata/middleware/login-middleware.php');
     }
 ?>
 <!DOCTYPE html>

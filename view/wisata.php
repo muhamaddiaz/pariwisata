@@ -5,6 +5,12 @@
     $sql = "SELECT * FROM wisata WHERE id_wisata=$id_wisata";
     $result = $conn->query($sql);
     $wisata = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    if(isset($_SESSION['id_user'])) {
+        $id_user_log = $_SESSION['id_user'];
+        $sql = "SELECT * FROM user WHERE id_user=$id_user_log";
+        $result = $conn->query($sql);
+        $logon_user = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,6 +52,7 @@
                             while($row = $result->fetch_assoc()) {
                                 $id_user = $row['id_user'];
                                 $komentar = $row['isi_komentar'];
+                                $id_komentar = $row['id_komentar'];
                                 $sqluser = "SELECT * FROM user WHERE id_user=$id_user";
                                 $resuser = $conn->query($sqluser);
                                 $user = mysqli_fetch_array($resuser, MYSQLI_ASSOC);
@@ -55,8 +62,18 @@
                                             <p class='card-text'>$komentar</p>
                                         </div>
                                         <div class='card-footer'>
-                                            <p class='card-text'>Commented by - $username</p>
-                                        </div>
+                                            <p class='card-text'>Commented by - $username</p>";
+                                            if(isset($_SESSION['id_user'])) {
+                                                if($row['id_user'] == $logon_user['id_user']) {
+                                                    echo 
+                                                    "<form action='../controller/delete-comment-process.php' method='post'>
+                                                        <input type='hidden' name='id_delete' value='$id_komentar' />
+                                                        <input type='hidden' name='id_wisata' value='$id_wisata' />
+                                                        <button type='submit' class='btn btn-danger'>Hapus komen</button>
+                                                    </form>";
+                                                }
+                                            }
+                                      echo"</div>
                                       </div><br>";
                             }
                         } else {

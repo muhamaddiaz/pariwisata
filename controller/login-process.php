@@ -15,6 +15,6 @@
         $json = mysqli_fetch_array($result, MYSQLI_ASSOC);
         $_SESSION['id_user'] = $json['id_user'];
         $_SESSION['alert'] = "<script>alert('" . "Welcome back ". $json['fullname'] ."')</script>";
-        header("Location: ". "http://localhost/pariwisata/view/main.php");
+        header("Location: ". "http://localhost/pariwisata/middleware/login-middleware.php");
     }
 ?>

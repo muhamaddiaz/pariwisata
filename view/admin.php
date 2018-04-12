@@ -345,12 +345,12 @@
                                                 <td>$tujuan_transport</td>
                                                 <td>$kapasitas_transport</td>
                                                 <td>
-                                                    <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#transportdelete$id_hotel'>
+                                                    <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#transportdelete$id_transport'>
                                                         Delete
                                                     </button>
                                                 </td>
                                                 <td>
-                                                    <button type='button' class='btn btn-info' data-toggle='modal' data-target='#transportupdate$id_hotel'>
+                                                    <button type='button' class='btn btn-info' data-toggle='modal' data-target='#transportupdate$id_transport'>
                                                         Update
                                                     </button>
                                                 </td>
